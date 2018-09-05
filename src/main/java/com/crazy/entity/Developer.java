@@ -12,14 +12,14 @@ public class Developer {
     private String dev_domain;
     private String dev_intro;
     private String ext_param;
-    private Date Enroll_date;
+    private Date enroll_date;
 
     public Date getEnroll_date() {
-        return Enroll_date;
+        return enroll_date;
     }
 
     public void setEnroll_date(Date enroll_date) {
-        Enroll_date = enroll_date;
+        this.enroll_date = enroll_date;
     }
 
     public String getDev_intro() {
@@ -78,7 +78,7 @@ public class Developer {
                 ", dev_domain='" + dev_domain + '\'' +
                 ", dev_intro='" + dev_intro + '\'' +
                 ", ext_param='" + ext_param + '\'' +
-                ", Enroll_date=" + Enroll_date +
+                ", Enroll_date=" + enroll_date +
                 '}';
     }
 }

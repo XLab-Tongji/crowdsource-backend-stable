@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 import com.crazy.entity.Account;
+import com.crazy.entity.Developer;
 import com.crazy.util.ResJsonTemplate;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,9 @@ public interface AccountService {
 
     //注册用户
     public ResJsonTemplate addAccount(Account account);
+
+    //注册用户
+    public ResJsonTemplate addDeveloper(Developer developer);
 
     //用户登录
     public ResJsonTemplate checkAccount(Account account, String useragent, HttpServletRequest request);
