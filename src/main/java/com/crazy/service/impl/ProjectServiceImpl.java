@@ -134,8 +134,9 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ResJsonTemplate confirmDevelop(DevInfo devInfo) {
         try {
-            return new ResJsonTemplate("200", projectMapper.insertDevelopingInfo(devInfo.getUsername(),
-                    devInfo.getProject_id()));
+            int result = projectMapper.confirmDeveloper(devInfo.getProject_id());
+            result = result & projectMapper.insertDevelopingInfo(devInfo.getUsername(), devInfo.getProject_id());
+            return new ResJsonTemplate("200", result);
         } catch (Exception e) {
 
             System.out.println(e);

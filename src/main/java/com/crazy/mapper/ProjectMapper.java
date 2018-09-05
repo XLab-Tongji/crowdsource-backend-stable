@@ -42,7 +42,7 @@ public interface ProjectMapper {
     @Select("SELECT project_id FROM DEV_ENROLL_INFO WHERE username=#{username}")
     List<Integer> searchProjectIdbyUsername(@Param("username") String username);
 
-    @Select("SELECT * FROM PROJECT a LEFT JOIN DEV_ENROLL_INFO b ON a.project_id=b.project_id WHERE b.username=#{username}")
+    @Select("SELECT * FROM PROJECT a LEFT JOIN DEV_ENROLL_INFO b ON a.project_id=b.project_id WHERE b.username=#{username} and a.state=0")
     List<Project> searchProjectInfobyUsername(@Param("username") String username);
 
     @Insert("INSERT DEVELOPING_INFO (username,project_id,confirm_date) VALUES (#{username},#{project_id},NOW())")
@@ -51,7 +51,7 @@ public interface ProjectMapper {
     @Select("SELECT COUNT(project_id) AS countlist FROM DEVELOPING_INFO WHERE project_id=#{project_id}")
     int getDevelopProjectCount(@Param("project_id") Long project_id);
 
-    @Select("SELECT * FROM PROJECT a LEFT JOIN DEVELOPING_INFO b ON a.project_id=b.project_id WHERE b.username=#{username}")
+    @Select("SELECT * FROM PROJECT a LEFT JOIN DEVELOPING_INFO b ON a.project_id=b.project_id WHERE b.username=#{username} and a.state=1")
     List<Project> searchDevelopingProjectbyUsername(@Param("username") String username);
 
     @Select("SELECT username FROM DEV_ENROLL_INFO WHERE project_id=#{project_id}")
@@ -67,5 +67,6 @@ public interface ProjectMapper {
     @Select("SELECT COUNT(*) FROM PROJECT")
     int getProjectCountPage();
 
-
+    @Update("UPDATE project SET state=1 where project_id=#{project_id}")
+    int confirmDeveloper(@Param("project_id") Long project_id);
 }

@@ -34,6 +34,8 @@ public class Project {
 
     private Date update_date;
 
+    private int state;
+
 
     public Long getProject_id() {
         return project_id;
@@ -161,5 +163,13 @@ public class Project {
                 ", enroll_stop_time=" + enroll_stop_time +
                 ", update_date=" + update_date +
                 '}';
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 }
