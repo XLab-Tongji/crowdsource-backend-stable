@@ -1,0 +1,17 @@
+.gradle/
+.idea/
+build/
+gradle/
+out/
+
+*.bat
+classes/
+libs/
+
+.classpath
+.project
+.settings/
+
+.DS_Store
+
+webapp/
