@@ -84,7 +84,9 @@ public class AccountServiceImpl implements AccountService {
         try {
 
 
-            return null;
+            return new ResJsonTemplate("200",accountMapper.addDevInfo(developer.getUsername(), developer.getAccount_id(),
+                    developer.getDev_domain(), developer.getDev_intro(), developer.getExt_param()
+            ));
 
         } catch (Exception ex) {
             System.out.println(ex);
@@ -93,6 +95,17 @@ public class AccountServiceImpl implements AccountService {
 
         }
     }
+
+    @Override
+    public ResJsonTemplate getUserIdByName(String name){
+        return new ResJsonTemplate("200",accountMapper.getUserId(name));
+    }
+
+    @Override
+    public ResJsonTemplate getDeveloperByName(String name){
+        return new ResJsonTemplate("200",accountMapper.getDeveloperByName(name));
+    }
+
 
     @Override
     public ResJsonTemplate checkAccount(Account account, String useragent, HttpServletRequest request) {

@@ -17,8 +17,14 @@ public interface AccountService {
     //注册用户
     public ResJsonTemplate addAccount(Account account);
 
-    //注册用户
+    //注册开发者
     public ResJsonTemplate addDeveloper(Developer developer);
+
+    //返回ID
+    public ResJsonTemplate getUserIdByName(String name);
+
+    //返回devloper
+    public ResJsonTemplate getDeveloperByName(String name);
 
     //用户登录
     public ResJsonTemplate checkAccount(Account account, String useragent, HttpServletRequest request);
