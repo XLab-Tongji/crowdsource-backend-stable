@@ -62,14 +62,6 @@ public class Developer {
         this.dev_domain = dev_domain;
     }
 
-    public String getDev_project() {
-        return dev_intro;
-    }
-
-    public void setDev_project(String dev_project) {
-        this.dev_intro = dev_project;
-    }
-
     @Override
     public String toString() {
         return "Developer{" +

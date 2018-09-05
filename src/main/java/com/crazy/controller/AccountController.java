@@ -45,6 +45,12 @@ public class AccountController {
         return accountService.addDeveloper(developer);
     }
 
+    @RequestMapping(value = "/developer/{name}", method = RequestMethod.GET)
+    @ResponseBody
+    public ResJsonTemplate getDeveloperByName(@PathVariable String name) {
+        return accountService.getDeveloperByName(name);
+    }
+
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
@@ -54,10 +60,19 @@ public class AccountController {
         return accountService.checkAccount(account, useragent, request);
     }
 
+    @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
+    @ResponseBody
+    public ResJsonTemplate getProjectEnrollcount(@PathVariable String name) {
+        return accountService.getUserIdByName(name);
+
+    }
+
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test(@RequestParam(value = "token") String token) {
         return encryption.tokenValidate(token);
     }
+
+
 
 
 
