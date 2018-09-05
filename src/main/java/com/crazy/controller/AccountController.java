@@ -1,5 +1,6 @@
 package com.crazy.controller;
 
+import com.crazy.entity.Developer;
 import com.crazy.mapper.AccountMapper;
 import com.crazy.entity.Account;
 
@@ -36,6 +37,12 @@ public class AccountController {
     @ResponseBody
     public ResJsonTemplate addAccount(@RequestBody Account account) {
         return accountService.addAccount(account);
+    }
+
+    @RequestMapping(value = "/developer", method = RequestMethod.POST)
+    @ResponseBody
+    public ResJsonTemplate addDeveloper(@RequestBody Developer developer) {
+        return accountService.addDeveloper(developer);
     }
 
 

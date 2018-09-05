@@ -1,6 +1,7 @@
 package com.crazy.service.impl;
 
 import com.crazy.entity.Account;
+import com.crazy.entity.Developer;
 import com.crazy.mapper.AccountMapper;
 import com.crazy.mapper.MartGitConnectionMapper;
 import com.crazy.service.AccountService;
@@ -78,6 +79,20 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
+    @Override
+    public ResJsonTemplate addDeveloper(Developer developer) {
+        try {
+
+
+            return null;
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+            return new ResJsonTemplate("500", "创建开发者失败");
+
+        }
+    }
 
     @Override
     public ResJsonTemplate checkAccount(Account account, String useragent, HttpServletRequest request) {
