@@ -67,6 +67,13 @@ public class AccountController {
 
     }
 
+    @RequestMapping(value = "/contact/{name}", method = RequestMethod.GET)
+    @ResponseBody
+    public ResJsonTemplate getContactByName(@PathVariable String name) {
+        return accountService.getContactByName(name);
+
+    }
+
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test(@RequestParam(value = "token") String token) {
         return encryption.tokenValidate(token);

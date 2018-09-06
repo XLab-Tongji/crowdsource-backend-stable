@@ -108,6 +108,12 @@ public class AccountServiceImpl implements AccountService {
 
 
     @Override
+    public ResJsonTemplate getContactByName(String name){
+        return new ResJsonTemplate("200",accountMapper.getContactByName(name));
+    }
+
+
+    @Override
     public ResJsonTemplate checkAccount(Account account, String useragent, HttpServletRequest request) {
 
         String result = null;

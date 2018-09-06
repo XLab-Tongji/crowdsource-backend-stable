@@ -2,6 +2,7 @@ package com.crazy.mapper;
 
 import com.crazy.entity.Developer;
 import com.crazy.entity.Project;
+import com.crazy.entity.ProjectWithContact;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -51,8 +52,8 @@ public interface ProjectMapper {
     @Select("SELECT COUNT(project_id) AS countlist FROM DEVELOPING_INFO WHERE project_id=#{project_id}")
     int getDevelopProjectCount(@Param("project_id") Long project_id);
 
-    @Select("SELECT * FROM PROJECT a LEFT JOIN DEVELOPING_INFO b ON a.project_id=b.project_id WHERE b.username=#{username} and a.state=1")
-    List<Project> searchDevelopingProjectbyUsername(@Param("username") String username);
+    @Select("SELECT * FROM PROJECT a LEFT JOIN DEVELOPING_INFO b ON a.project_id=b.project_id LEFT JOIN ACCOUNT c ON a.username = c.username WHERE b.username=#{username} and a.state=1")
+    List<ProjectWithContact> searchDevelopingProjectbyUsername(@Param("username") String username);
 
     @Select("SELECT username FROM DEV_ENROLL_INFO WHERE project_id=#{project_id}")
     List<String> searchEnrollmemberbyProjectId(@Param("project_id") Long project_id);

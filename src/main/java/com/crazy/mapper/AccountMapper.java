@@ -33,6 +33,9 @@ public interface AccountMapper {
     @Select("SELECT username,password FROM ACCOUNT WHERE username=#{username}")
     Map<String, String> getCheckInfo(@Param("username") String username);
 
+    @Select("SELECT mobile,email FROM ACCOUNT WHERE username=#{username}")
+    Map<String, String> getContactByName(@Param("username") String username);
+
     @Insert("INSERT INTO ACCOUNT_LOGIN_LOG (ip,token,create_time,expire_time,account_id,plat,username) VALUES " +
             "(#{ip},#{token},#{create_time},#{expire_time},#{account_id},#{plat},#{username})")
     int addLoginLog(@Param("ip") String ip, @Param("token") String token, @Param("create_time") Date create_time,

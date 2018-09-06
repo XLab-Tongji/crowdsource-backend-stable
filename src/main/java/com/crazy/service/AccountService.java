@@ -26,6 +26,9 @@ public interface AccountService {
     //返回devloper
     public ResJsonTemplate getDeveloperByName(String name);
 
+    //返回联系方式
+    public ResJsonTemplate getContactByName(String name);
+
     //用户登录
     public ResJsonTemplate checkAccount(Account account, String useragent, HttpServletRequest request);
 
